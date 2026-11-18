@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+results/vol_*.npy
+results/ls_*.npy
+results/logs/
+results/**/quick_*
+results/quick_*
+results/*timing*
