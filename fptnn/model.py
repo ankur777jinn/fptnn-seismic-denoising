@@ -49,19 +49,31 @@ class DnCNN(nn.Module):
         return y - self.body(y)
 
 
-def sure_loss(model, y, sigma, eps):
+def sure_loss(model, y, sigma, eps, n_probes=1, central=False, probes=None, per_sample=False):
     """Monte-Carlo SURE (Ramani et al., 2008; Soltanayev & Chun, 2018), Eq. (6):
        (1/K)||y - h(y)||^2 - sigma^2 + (2 sigma^2 / K) div_y h(y),
-       div_y h(y) ~= b^T (h(y + eps b) - h(y)) / eps,  b ~ N(0, I).
-    Returns (mean loss, h(y)).  y: (B,1,H,W); sigma, eps: (B,)."""
+       div_y h(y) ~= b^T (h(y + eps b) - h(y)) / eps,  b ~ N(0, I)          (forward)
+                  ~= b^T (h(y + eps b) - h(y - eps b)) / (2 eps)          (central)
+    averaged over n_probes independent b (lower-variance divergence).
+    probes: optional fixed list of b tensors (used for hold-out validation).
+    Returns (mean loss, h(y)), or per-sample losses if per_sample.
+    y: (B,1,H,W); sigma, eps: (B,)."""
     out = model(y)
-    b = torch.randn_like(y)
-    out_p = model(y + eps.view(-1, 1, 1, 1) * b)
+    e = eps.view(-1, 1, 1, 1)
     K = y[0].numel()
-    div = (b * (out_p - out)).flatten(1).sum(1) / eps
+    n = len(probes) if probes is not None else n_probes
+    div = 0.0
+    for k in range(n):
+        b = probes[k] if probes is not None else torch.randn_like(y)
+        if central:
+            d = (model(y + e * b) - model(y - e * b)) / (2.0 * e)
+        else:
+            d = (model(y + e * b) - out) / e
+        div = div + (b * d).flatten(1).sum(1)
+    div = div / n
     data = ((y - out) ** 2).flatten(1).sum(1) / K
     loss = data - sigma ** 2 + 2.0 * sigma ** 2 * div / K
-    return loss.mean(), out
+    return (loss if per_sample else loss.mean()), out
 
 
 # ---------------------------------------------------------------- the method
@@ -70,7 +82,9 @@ class FPTNN:
                  bc="symmetric", depth=17, width=64, bn=True, steps=3000, batch=32,
                  lr=1e-3, lr_final=1e-4, loss="sure", sigma_mode="mad_band",
                  eps_rel=1e-3, crop=None, seed=0, threads=None, device=None, log_every=100,
-                 infer_batch=4096, verbose=True):
+                 infer_batch=4096, verbose=True,
+                 div_probes=1, div_central=False,          # fix 3: divergence estimator
+                 val_frac=0.0, val_every=500, val_max=4096):  # fix 2: hold-out SURE early stop
         self.__dict__.update({k: v for k, v in locals().items() if k != "self"})
 
     # --------------------------------------------------------------
@@ -124,12 +138,54 @@ class FPTNN:
         model = DnCNN(self.depth, self.width, self.bn).to(dev)
         opt = torch.optim.Adam(model.parameters(), lr=self.lr)
         sched = torch.optim.lr_scheduler.CosineAnnealingLR(opt, self.steps, eta_min=self.lr_final)
-        hist = {"step": [], "loss": [], "true_mse": []}
+        hist = {"step": [], "loss": [], "true_mse": [], "val_step": [], "val_sure": [], "val_true": []}
+
+        # fix 2: hold out a random subset of slices; SURE on them (no clean data) picks the
+        # best checkpoint.  Caveat: framelet slices overlap in the original domain, so the
+        # held-out noise is correlated with the training noise -> the guard is optimistic.
+        train_pool = np.arange(N)
+        val = None
+        if self.val_frac > 0:
+            perm_s = rng.permutation(N)
+            n_val = max(1, int(round(self.val_frac * N)))
+            val_idx = torch.from_numpy(np.sort(perm_s[:n_val][:self.val_max]))
+            train_pool = perm_s[n_val:]
+            gen = torch.Generator().manual_seed(self.seed + 1)
+            vy = Sn[val_idx]
+            n_pr = max(self.div_probes, 2)
+            val = {"y": vy.to(dev),
+                   "b": [torch.randn(vy.shape, generator=gen).to(dev) for _ in range(n_pr)],
+                   "x": Xn[val_idx].to(dev) if Xn is not None else None}
+        best = {"sure": math.inf, "state": None, "step": 0}
+
+        def _validate(it):
+            model.eval()
+            with torch.no_grad():
+                ls, ts = [], []
+                for s in range(0, len(val["y"]), 1024):
+                    yv = val["y"][s:s + 1024]
+                    ones_v = torch.ones(len(yv), device=dev)
+                    lv, ov = sure_loss(model, yv, ones_v, self.eps_rel * ones_v, central=True,
+                                       probes=[b[s:s + 1024] for b in val["b"]], per_sample=True)
+                    ls.append(lv)
+                    if val["x"] is not None:
+                        ts.append(((ov - val["x"][s:s + 1024]) ** 2).flatten(1).mean(1))
+                vs = float(torch.cat(ls).mean())
+                vt = float(torch.cat(ts).mean()) if ts else None
+            model.train()
+            hist["val_step"].append(it); hist["val_sure"].append(vs); hist["val_true"].append(vt)
+            if vs < best["sure"]:
+                best.update(sure=vs, step=it,
+                            state={k: v.detach().clone() for k, v in model.state_dict().items()})
+            self._log(f"  [val] step {it:5d}  sure {vs:.4f}" +
+                      (f"  true-mse {vt:.4f}" if vt is not None else "") +
+                      ("  *" if best["step"] == it else ""))
+
         model.train()
         run_l, run_t, cnt = 0.0, 0.0, 0
         t_train = time.time()
         for it in range(1, self.steps + 1):
-            idx = torch.from_numpy(rng.integers(0, N, self.batch))
+            idx = torch.from_numpy(train_pool[rng.integers(0, len(train_pool), self.batch)])
             y = Sn[idx].to(dev, non_blocking=True)
             if self.crop is not None:  # random spatial crop (same window for the batch)
                 ch, cw = min(self.crop[0], n1), min(self.crop[1], n2)
@@ -138,7 +194,8 @@ class FPTNN:
                 y = y[:, :, r0:r0 + ch, c0:c0 + cw]
             ones = torch.ones(len(idx), device=dev)
             if self.loss == "sure":
-                loss, out = sure_loss(model, y, ones, self.eps_rel * ones)
+                loss, out = sure_loss(model, y, ones, self.eps_rel * ones,
+                                      n_probes=self.div_probes, central=self.div_central)
             else:
                 out = model(y)
                 xt = (Xn[idx] if self.crop is None else Xn[idx][:, :, r0:r0 + ch, c0:c0 + cw]).to(dev)
@@ -161,7 +218,14 @@ class FPTNN:
                           (f"  true-mse {run_t / cnt:.4f}" if Xn is not None else "") +
                           f"  ({time.time() - t_train:.0f}s)")
                 run_l, run_t, cnt = 0.0, 0.0, 0
+            if val is not None and (it % self.val_every == 0 or it == self.steps):
+                _validate(it)
         info["train_time_s"] = time.time() - t_train
+        if val is not None and best["state"] is not None:
+            model.load_state_dict(best["state"])
+            info["best_step"] = best["step"]
+            info["best_val_sure"] = best["sure"]
+            self._log(f"  restored best hold-out-SURE checkpoint from step {best['step']}")
 
         model.eval()
         t_inf = time.time()

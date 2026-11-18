@@ -24,6 +24,11 @@ VARIANTS = {
     "sig_oracle":   {"sigma_mode": "oracle"},
     "loss_mse":     {"loss": "mse"},
     "slices_tx":    {"image_modes": "tx"},   # (time, x) frontal slices instead of (x, y)
+    # SURE-training fixes (see README / report)
+    "holdout":      {"val_frac": 0.1},                         # hold-out SURE early stopping
+    "div_c4":       {"div_probes": 4, "div_central": True},    # 4-probe central-difference div
+    "no_bn":        {"bn": False},                             # no BatchNorm coupling in div
+    "all_fixes":    {"val_frac": 0.1, "div_probes": 4, "div_central": True, "bn": False},
 }
 
 
