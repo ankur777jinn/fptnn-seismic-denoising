@@ -24,11 +24,11 @@ VARIANTS = {
     "sig_oracle":   {"sigma_mode": "oracle"},
     "loss_mse":     {"loss": "mse"},
     "slices_tx":    {"image_modes": "tx"},   # (time, x) frontal slices instead of (x, y)
-    # SURE-training fixes (see README / report)
-    "holdout":      {"val_frac": 0.1},                         # hold-out SURE early stopping
-    "div_c4":       {"div_probes": 4, "div_central": True},    # 4-probe central-difference div
-    "no_bn":        {"bn": False},                             # no BatchNorm coupling in div
-    "all_fixes":    {"val_frac": 0.1, "div_probes": 4, "div_central": True, "bn": False},
+    # SURE-training choices (default is now a 4-probe central-difference divergence)
+    "div_fwd1":     {"div_probes": 1, "div_central": False},   # paper-style 1-probe forward diff
+    "div_c4":       {"div_probes": 4, "div_central": True},    # explicit 4-probe central diff
+    "holdout":      {"val_frac": 0.1},                         # hold-out SURE (gap diagnostic)
+    "no_bn":        {"bn": False},                             # no BatchNorm
 }
 
 
@@ -46,6 +46,8 @@ def main():
     p.add_argument("--batch", type=int, default=32)
     p.add_argument("--sigma_mode", default="mad_band")
     p.add_argument("--threads", type=int, default=None)
+    p.add_argument("--div_probes", type=int, default=4)
+    p.add_argument("--div_forward", action="store_true", help="1-sided divergence (paper/Soltanayev); default central")
     p.add_argument("--tag", default="e4")
     a = p.parse_args()
 
@@ -57,7 +59,8 @@ def main():
     res["args"] = vars(a)
     base = dict(image_modes=IMAGE_MODES[a.data], kind="framelet", ftype="linear", levels=1,
                 bc="symmetric", depth=a.depth, width=a.width, steps=a.steps, batch=a.batch,
-                sigma_mode=a.sigma_mode, threads=a.threads, log_every=max(a.steps // 5, 1))
+                sigma_mode=a.sigma_mode, threads=a.threads, log_every=max(a.steps // 5, 1),
+                div_probes=a.div_probes, div_central=not a.div_forward)
     jobs = []
     if a.grid:
         for d in a.depths:

@@ -26,8 +26,10 @@ There is no official code; everything here is written from the paper.
 ```bash
 pip install -r requirements.txt
 QUICK=1 bash run_all.sh   # smoke test, ~10 min
-bash run_all.sh           # full pipeline (GPU recommended)
+bash run_all.sh           # full pipeline, sequential
+CUDA_VISIBLE_DEVICES=0 bash run_parallel.sh   # same, 5 lanes on one GPU
 ```
+Defaults: SURE with a 4-probe central-difference divergence, 10k steps x batch 128.
 
 ## Status (work in progress)
 5-D synthetic data, 5 dB input, 17×64 DnCNN (paper Table III: SURE 20.41 dB, MSE 21.50 dB):

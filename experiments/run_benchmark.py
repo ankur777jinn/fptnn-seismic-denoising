@@ -61,7 +61,8 @@ def run_method(name, X, Y, sigma, data, a):
         m = FPTNN(image_modes=im, kind=a.kind, ftype=a.ftype, levels=a.levels, bc="symmetric",
                   depth=a.depth, width=a.width, steps=a.steps, batch=a.batch, lr=a.lr,
                   loss=loss, sigma_mode=sig_mode, seed=a.seed, threads=a.threads,
-                  log_every=max(a.steps // 10, 1))
+                  log_every=max(a.steps // 10, 1),
+                  div_probes=a.div_probes, div_central=not a.div_forward)
         out, info = m.fit_denoise(Y, X=X, sigma_true=sigma)
         info["time_s"] = info["total_time_s"]
     else:
@@ -90,6 +91,8 @@ def main():
     p.add_argument("--sigma_mode", default="mad_band")
     p.add_argument("--threads", type=int, default=None)
     p.add_argument("--pu_epochs", type=int, default=50)
+    p.add_argument("--div_probes", type=int, default=4)
+    p.add_argument("--div_forward", action="store_true", help="1-sided divergence (paper/Soltanayev); default central")
     a = p.parse_args()
 
     X = load(a.data)

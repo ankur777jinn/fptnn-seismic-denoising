@@ -26,6 +26,8 @@ def main():
     p.add_argument("--batch", type=int, default=32)
     p.add_argument("--sigma_mode", default="mad_band")
     p.add_argument("--threads", type=int, default=None)
+    p.add_argument("--div_probes", type=int, default=4)
+    p.add_argument("--div_forward", action="store_true", help="1-sided divergence (paper/Soltanayev); default central")
     p.add_argument("--rect", type=int, nargs=3, default=[20, 10, 3])
     a = p.parse_args()
 
@@ -41,7 +43,8 @@ def main():
     def fptnn_run(Y, X=None, sig=None):
         m = FPTNN(image_modes=im, kind="framelet", ftype="linear", levels=1, bc="symmetric",
                   depth=a.depth, width=a.width, steps=a.steps, batch=a.batch,
-                  sigma_mode=a.sigma_mode, threads=a.threads, log_every=max(a.steps // 10, 1))
+                  sigma_mode=a.sigma_mode, threads=a.threads, log_every=max(a.steps // 10, 1),
+                  div_probes=a.div_probes, div_central=not a.div_forward)
         return m.fit_denoise(Y, X=X, sigma_true=sig)
 
     # ---------------- (i) semi-synthetic
