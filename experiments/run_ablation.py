@@ -29,6 +29,8 @@ VARIANTS = {
     "div_c4":       {"div_probes": 4, "div_central": True},    # explicit 4-probe central diff
     "holdout":      {"val_frac": 0.1},                         # hold-out SURE (gap diagnostic)
     "no_bn":        {"bn": False},                             # no BatchNorm
+    "identity_holdout": {"kind": "identity", "val_frac": 0.1},  # debug: SURE collapse on 505 slices
+    "dct_holdout":  {"kind": "dct", "val_frac": 0.1},
 }
 
 
