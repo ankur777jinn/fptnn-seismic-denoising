@@ -59,7 +59,7 @@ def run_method(name, X, Y, sigma, data, a):
         if name.endswith("_oracle"):
             sig_mode = "oracle"
         m = FPTNN(image_modes=im, kind=a.kind, ftype=a.ftype, levels=a.levels, bc="symmetric",
-                  depth=a.depth, width=a.width, steps=a.steps, batch=a.batch, lr=a.lr,
+                  depth=a.depth, width=a.width, steps=a.steps, batch=a.batch, lr=a.lr, lr_final=a.lr_final,
                   loss=loss, sigma_mode=sig_mode, seed=a.seed, threads=a.threads,
                   log_every=max(a.steps // 10, 1),
                   div_probes=a.div_probes, div_central=not a.div_forward)
@@ -88,6 +88,7 @@ def main():
     p.add_argument("--steps", type=int, default=3000)
     p.add_argument("--batch", type=int, default=32)
     p.add_argument("--lr", type=float, default=1e-3)
+    p.add_argument("--lr_final", type=float, default=1e-4, help="cosine end LR; set = --lr for a constant LR (paper)")
     p.add_argument("--sigma_mode", default="mad_band")
     p.add_argument("--threads", type=int, default=None)
     p.add_argument("--pu_epochs", type=int, default=50)
