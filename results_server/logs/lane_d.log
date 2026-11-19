@@ -1,0 +1,117 @@
+[03:46:28] D: E5 theory
+(a) tight frame:
+   haar   L1 periodic  W(200, 100)  |WtW-I|=0.0e+00  |WWt-I|=0.50
+   haar   L1 symmetric W(200, 100)  |WtW-I|=5.0e-01  |WWt-I|=1.00
+   haar   L2 periodic  W(300, 100)  |WtW-I|=0.0e+00  |WWt-I|=0.75
+   haar   L2 symmetric W(300, 100)  |WtW-I|=1.1e+00  |WWt-I|=1.00
+   linear L1 periodic  W(300, 100)  |WtW-I|=1.4e-17  |WWt-I|=0.75
+   linear L1 symmetric W(300, 100)  |WtW-I|=2.8e-17  |WWt-I|=0.88
+   linear L2 periodic  W(500, 100)  |WtW-I|=1.7e-17  |WWt-I|=0.91
+   linear L2 symmetric W(500, 100)  |WtW-I|=2.8e-17  |WWt-I|=0.97
+   cubic  L1 periodic  W(500, 100)  |WtW-I|=1.5e-17  |WWt-I|=0.86
+   cubic  L1 symmetric W(500, 100)  |WtW-I|=1.4e-17  |WWt-I|=0.95
+   cubic  L2 periodic  W(900, 100)  |WtW-I|=1.4e-17  |WWt-I|=0.97
+   cubic  L2 symmetric W(900, 100)  |WtW-I|=1.4e-17  |WWt-I|=0.99
+(b) t-product: [{'order': 3, 'def_vs_fft': 2.6645352591003757e-15, 'framelet_vs_circulant_rel': 0.9726532967426819}, {'order': 4, 'def_vs_fft': 1.4210854715202004e-14, 'framelet_vs_circulant_rel': 0.9986871460885197}, {'order': 5, 'def_vs_fft': 2.1316282072803006e-14, 'framelet_vs_circulant_rel': 1.0001640432792158}]
+(c) band std: max rel err 0.035; corr within slice 0.000; corr along transformed time axis 0.667
+(d) sigma estimation: [{'snr_in': -5, 'mad_band_rel_err_median': 0.11065282691695377, 'mad_band_rel_err_max': 3.056039047989758, 'mad_global_rel_err': 0.004852019532492147}, {'snr_in': 0, 'mad_band_rel_err_median': 0.10600939349681404, 'mad_band_rel_err_max': 3.0579992321692258, 'mad_global_rel_err': 0.019216529533489624}, {'snr_in': 5, 'mad_band_rel_err_median': 0.11593750938574177, 'mad_band_rel_err_max': 3.063355681727045, 'mad_global_rel_err': 0.05929844942673279}]
+(e) per-band SNR at 0 dB input: min -25.1 max 9.3 dB; low-pass band holds 58.0% of signal energy
+saved
+[03:46:33] D: E4 grid
+=== synth5d +0.0 dB  d8_w16: {'depth': 8, 'width': 16}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.3308  true-mse 0.4196  (35s)
+  step  2000  loss 0.1665  true-mse 0.2727  (78s)
+  step  3000  loss 0.1326  true-mse 0.2491  (124s)
+  step  4000  loss 0.1181  true-mse 0.2404  (170s)
+  step  5000  loss 0.1118  true-mse 0.2394  (215s)
+    -> 9.52 dB  (218s)
+=== synth5d +0.0 dB  d8_w32: {'depth': 8, 'width': 32}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.2134  true-mse 0.3302  (55s)
+  step  2000  loss 0.1001  true-mse 0.2473  (111s)
+  step  3000  loss 0.0774  true-mse 0.2313  (166s)
+  step  4000  loss 0.0657  true-mse 0.2256  (222s)
+  step  5000  loss 0.0597  true-mse 0.2207  (277s)
+    -> 10.40 dB  (279s)
+=== synth5d +0.0 dB  d8_w64: {'depth': 8, 'width': 64}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.1406  true-mse 0.2680  (65s)
+  step  2000  loss 0.0660  true-mse 0.2240  (129s)
+  step  3000  loss 0.0483  true-mse 0.2165  (194s)
+  step  4000  loss 0.0385  true-mse 0.2146  (258s)
+  step  5000  loss 0.0316  true-mse 0.2107  (323s)
+    -> 11.01 dB  (326s)
+=== synth5d +0.0 dB  d12_w16: {'depth': 12, 'width': 16}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.6425  true-mse 0.7234  (64s)
+  step  2000  loss 0.3851  true-mse 0.4758  (128s)
+  step  3000  loss 0.2865  true-mse 0.3753  (193s)
+  step  4000  loss 0.2410  true-mse 0.3288  (257s)
+  step  5000  loss 0.2220  true-mse 0.3086  (321s)
+    -> 7.74 dB  (323s)
+=== synth5d +0.0 dB  d12_w32: {'depth': 12, 'width': 32}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4206  true-mse 0.5186  (82s)
+  step  2000  loss 0.1921  true-mse 0.3231  (156s)
+  step  3000  loss 0.1359  true-mse 0.2872  (229s)
+  step  4000  loss 0.1130  true-mse 0.2721  (303s)
+  step  5000  loss 0.1014  true-mse 0.2593  (377s)
+    -> 9.38 dB  (380s)
+=== synth5d +0.0 dB  d12_w64: {'depth': 12, 'width': 64}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.2503  true-mse 0.3739  (86s)
+  step  2000  loss 0.1024  true-mse 0.2588  (179s)
+  step  3000  loss 0.0729  true-mse 0.2458  (272s)
+  step  4000  loss 0.0561  true-mse 0.2361  (366s)
+  step  5000  loss 0.0448  true-mse 0.2292  (459s)
+    -> 10.49 dB  (463s)
+=== synth5d +0.0 dB  d17_w16: {'depth': 17, 'width': 16}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.8846  true-mse 0.9490  (84s)
+  step  2000  loss 0.7032  true-mse 0.7710  (169s)
+  step  3000  loss 0.5835  true-mse 0.6523  (253s)
+  step  4000  loss 0.4993  true-mse 0.5750  (338s)
+  step  5000  loss 0.4607  true-mse 0.5386  (422s)
+    -> 4.62 dB  (425s)
+=== synth5d +0.0 dB  d17_w32: {'depth': 17, 'width': 32}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.7283  true-mse 0.8030  (105s)
+  step  2000  loss 0.3786  true-mse 0.4657  (210s)
+  step  3000  loss 0.2752  true-mse 0.3715  (315s)
+  step  4000  loss 0.2256  true-mse 0.3317  (418s)
+  step  5000  loss 0.1965  true-mse 0.3219  (511s)
+    -> 7.58 dB  (514s)
+=== synth5d +0.0 dB  d17_w64: {'depth': 17, 'width': 64}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4731  true-mse 0.5557  (110s)
+  step  2000  loss 0.1563  true-mse 0.3011  (221s)
+  step  3000  loss 0.1113  true-mse 0.2682  (340s)
+  step  4000  loss 0.0828  true-mse 0.2506  (464s)
+  step  5000  loss 0.0663  true-mse 0.2434  (587s)
+    -> 10.02 dB  (593s)
+=== synth5d +0.0 dB  d20_w16: {'depth': 20, 'width': 16}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.9531  true-mse 1.0148  (95s)
+  step  2000  loss 0.8387  true-mse 0.9040  (190s)
+  step  3000  loss 0.7405  true-mse 0.8066  (285s)
+  step  4000  loss 0.6854  true-mse 0.7537  (380s)
+  step  5000  loss 0.6575  true-mse 0.7257  (475s)
+    -> 2.36 dB  (478s)
+=== synth5d +0.0 dB  d20_w32: {'depth': 20, 'width': 32}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.8678  true-mse 0.9328  (124s)
+  step  2000  loss 0.5822  true-mse 0.6574  (248s)
+  step  3000  loss 0.4045  true-mse 0.4813  (373s)
+  step  4000  loss 0.3185  true-mse 0.3964  (489s)
+  step  5000  loss 0.2776  true-mse 0.3556  (599s)
+    -> 6.74 dB  (603s)
+=== synth5d +0.0 dB  d20_w64: {'depth': 20, 'width': 64}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.6835  true-mse 0.7515  (128s)
+  step  2000  loss 0.3214  true-mse 0.4098  (262s)
+  step  3000  loss 0.2485  true-mse 0.3826  (404s)
+  step  4000  loss 0.1944  true-mse 0.3445  (539s)
+  step  5000  loss 0.1663  true-mse 0.3246  (675s)
+    -> 7.30 dB  (681s)
+[05:14:39] D: done

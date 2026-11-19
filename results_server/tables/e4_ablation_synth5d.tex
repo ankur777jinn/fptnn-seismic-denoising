@@ -1,0 +1,14 @@
+\begin{tabular}{lc}
+\hline
+Variant & SNR (dB) \\
+\hline
+Base: linear framelet, Eq.(24) $\sigma$, SURE & 10.43 \\
+Haar framelet & 11.24 \\
+DCT instead of framelet & 11.13 \\
+No transform (2-D DnCNN on slices) & 8.65 \\
+$\sigma$: global MAD propagated through $W$ & 12.80 \\
+$\sigma$: true value & 12.30 \\
+MSE loss with clean data & 16.77 \\
+(t, x) frontal slices & 10.35 \\
+\hline
+\end{tabular}

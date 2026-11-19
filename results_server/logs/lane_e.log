@@ -1,0 +1,103 @@
+[03:46:28] E: E4 ablations 5-D
+=== synth5d +0.0 dB  base: {}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  2000  loss 0.3094  true-mse 0.4297  (216s)
+  step  4000  loss 0.1053  true-mse 0.2700  (455s)
+  step  6000  loss 0.0732  true-mse 0.2514  (694s)
+  step  8000  loss 0.0478  true-mse 0.2425  (933s)
+  step 10000  loss 0.0335  true-mse 0.2347  (1171s)
+    -> 10.43 dB  (1177s)
+=== synth5d +0.0 dB  haar: {'ftype': 'haar', 'bc': 'periodic'}
+[FPTNN] framelet/haar/L1: 80000 slices of 10x10, redundancy 8.0, sigma=mad_band
+  step  2000  loss 0.3401  true-mse 0.3492  (218s)
+  step  4000  loss 0.1604  true-mse 0.1853  (435s)
+  step  6000  loss 0.1287  true-mse 0.1563  (678s)
+  step  8000  loss 0.1057  true-mse 0.1367  (922s)
+  step 10000  loss 0.0907  true-mse 0.1250  (1166s)
+    -> 11.24 dB  (1168s)
+=== synth5d +0.0 dB  dct: {'kind': 'dct'}
+[FPTNN] dct/linear/L1: 10000 slices of 10x10, redundancy 1.0, sigma=mad_band
+  step  2000  loss 0.2848  true-mse 0.3069  (246s)
+  step  4000  loss 0.0906  true-mse 0.1334  (492s)
+  step  6000  loss 0.0544  true-mse 0.1054  (712s)
+  step  8000  loss 0.0225  true-mse 0.0893  (943s)
+  step 10000  loss -0.0030  true-mse 0.0801  (1190s)
+    -> 11.13 dB  (1191s)
+=== synth5d +0.0 dB  identity: {'kind': 'identity'}
+[FPTNN] identity/linear/L1: 10000 slices of 10x10, redundancy 1.0, sigma=mad_band
+  step  2000  loss 0.3770  true-mse 0.3956  (247s)
+  step  4000  loss 0.1543  true-mse 0.2043  (493s)
+  step  6000  loss 0.1113  true-mse 0.1725  (742s)
+  step  8000  loss 0.0705  true-mse 0.1486  (980s)
+  step 10000  loss 0.0368  true-mse 0.1351  (1201s)
+    -> 8.65 dB  (1202s)
+=== synth5d +0.0 dB  sig_global: {'sigma_mode': 'mad_global'}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_global
+  step  2000  loss 0.3309  true-mse 0.3460  (239s)
+  step  4000  loss 0.1286  true-mse 0.1615  (474s)
+  step  6000  loss 0.0981  true-mse 0.1335  (679s)
+  step  8000  loss 0.0759  true-mse 0.1147  (868s)
+  step 10000  loss 0.0625  true-mse 0.1034  (1058s)
+    -> 12.80 dB  (1063s)
+=== synth5d +0.0 dB  sig_oracle: {'sigma_mode': 'oracle'}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=oracle
+  step  2000  loss 0.3732  true-mse 0.3732  (184s)
+  step  4000  loss 0.1662  true-mse 0.1664  (359s)
+  step  6000  loss 0.1374  true-mse 0.1376  (559s)
+  step  8000  loss 0.1174  true-mse 0.1188  (762s)
+  step 10000  loss 0.1049  true-mse 0.1074  (964s)
+    -> 12.30 dB  (969s)
+=== synth5d +0.0 dB  loss_mse: {'loss': 'mse'}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  2000  loss 0.0740  true-mse 0.0740  (54s)
+  step  4000  loss 0.0480  true-mse 0.0480  (108s)
+  step  6000  loss 0.0443  true-mse 0.0443  (163s)
+  step  8000  loss 0.0420  true-mse 0.0420  (217s)
+  step 10000  loss 0.0405  true-mse 0.0405  (271s)
+    -> 16.77 dB  (276s)
+=== synth5d +0.0 dB  slices_tx: {'image_modes': 'tx'}
+[FPTNN] framelet/linear/L1: 27000 slices of 100x10, redundancy 27.0, sigma=mad_band
+  step  2000  loss 0.0561  true-mse 0.3672  (1669s)
+  step  4000  loss -0.0634  true-mse 0.3051  (3277s)
+  step  6000  loss -0.0870  true-mse 0.2987  (4634s)
+  step  8000  loss -0.1062  true-mse 0.2970  (6237s)
+  step 10000  loss -0.1233  true-mse 0.2988  (8001s)
+    -> 10.35 dB  (8006s)
+=== synth5d +0.0 dB  div_fwd1: {'div_probes': 1, 'div_central': False}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  2000  loss 0.6314  true-mse 0.6976  (68s)
+  step  4000  loss 0.3308  true-mse 0.4059  (131s)
+  step  6000  loss 0.2473  true-mse 0.3472  (200s)
+  step  8000  loss 0.2036  true-mse 0.3312  (273s)
+  step 10000  loss 0.1797  true-mse 0.3160  (346s)
+    -> 7.11 dB  (351s)
+=== synth5d +0.0 dB  holdout: {'val_frac': 0.1}
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  [val] step   500  sure 0.3749  true-mse 0.4491  *
+  [val] step  1000  sure 0.2073  true-mse 0.3072  *
+  [val] step  1500  sure 0.1680  true-mse 0.2995  *
+  step  2000  loss 0.3088  true-mse 0.4193  (210s)
+  [val] step  2000  sure 0.1387  true-mse 0.2640  *
+  [val] step  2500  sure 0.1269  true-mse 0.2507  *
+  [val] step  3000  sure 0.1232  true-mse 0.2896  *
+  [val] step  3500  sure 0.1039  true-mse 0.2736  *
+  step  4000  loss 0.1072  true-mse 0.2706  (420s)
+  [val] step  4000  sure 0.0999  true-mse 0.2619  *
+  [val] step  4500  sure 0.1078  true-mse 0.2747
+  [val] step  5000  sure 0.0862  true-mse 0.2371  *
+  [val] step  5500  sure 0.0779  true-mse 0.2389  *
+  step  6000  loss 0.0747  true-mse 0.2486  (631s)
+  [val] step  6000  sure 0.0710  true-mse 0.2136  *
+  [val] step  6500  sure 0.0620  true-mse 0.2468  *
+  [val] step  7000  sure 0.0603  true-mse 0.2223  *
+  [val] step  7500  sure 0.0558  true-mse 0.2281  *
+  step  8000  loss 0.0494  true-mse 0.2365  (841s)
+  [val] step  8000  sure 0.0505  true-mse 0.2423  *
+  [val] step  8500  sure 0.0486  true-mse 0.2352  *
+  [val] step  9000  sure 0.0482  true-mse 0.2368  *
+  [val] step  9500  sure 0.0436  true-mse 0.2359  *
+  step 10000  loss 0.0345  true-mse 0.2352  (1051s)
+  [val] step 10000  sure 0.0428  true-mse 0.2189  *
+  restored best hold-out-SURE checkpoint from step 10000
+    -> 10.50 dB  (1057s)
+[08:20:50] E: done

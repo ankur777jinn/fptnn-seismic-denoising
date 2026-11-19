@@ -1,0 +1,90 @@
+{
+ "env": {
+  "python": "3.10.0",
+  "machine": "AMD64",
+  "cpus": 12,
+  "numpy": "2.2.3",
+  "torch": "2.5.1+cu118",
+  "torch_threads": 8
+ },
+ "runs": {
+  "base": {
+   "snr_out": 12.457004251771568,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 17,
+    "width": 64,
+    "steps": 20000,
+    "batch": 32,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 4000
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.009859268891396822,
+    "sigma_rel_err": 0.11434688875894483,
+    "device": "cuda",
+    "train_time_s": 732.1559443473816,
+    "infer_time_s": 11.652129888534546,
+    "total_time_s": 759.5159468650818,
+    "hist": {
+     "step": [
+      4000,
+      8000,
+      12000,
+      16000,
+      20000
+     ],
+     "loss": [
+      0.7867135125547647,
+      0.5214754640758038,
+      0.3421342509426177,
+      0.24657162209320813,
+      0.20491565911122597
+     ],
+     "true_mse": [
+      0.8209010316878558,
+      0.5803740361183882,
+      0.42241136410832403,
+      0.3423149578012526,
+      0.30083452497422697
+     ]
+    }
+   }
+  }
+ },
+ "args": {
+  "data": "synth5d",
+  "snr": 5.0,
+  "variants": [
+   "base"
+  ],
+  "grid": false,
+  "depths": [
+   8,
+   12,
+   17
+  ],
+  "widths": [
+   16,
+   32,
+   64
+  ],
+  "depth": 17,
+  "width": 64,
+  "steps": 20000,
+  "batch": 32,
+  "sigma_mode": "mad_band",
+  "threads": null,
+  "tag": "diag5_s20k"
+ }
+}

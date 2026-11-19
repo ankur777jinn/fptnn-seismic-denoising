@@ -1,0 +1,234 @@
+[03:46:28] A: E1 5-D sweep
+=== synth5d  input -5.0 dB  tnn
+    -> 7.93 dB  (0.3s)
+=== synth5d  input -5.0 dB  sgk
+    -> 12.02 dB  (7.3s)
+=== synth5d  input -5.0 dB  patchunet
+/home1/arti_r/ankur_experiments/fptnn/fptnn-seismic-denoising/fptnn/baselines/patchunet.py:60: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  tot += float(loss) * len(dd)
+    -> 8.52 dB  (18.2s)
+=== synth5d  input -5.0 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4352  true-mse 0.5330  (113s)
+  step  2000  loss 0.1433  true-mse 0.2938  (232s)
+  step  3000  loss 0.0995  true-mse 0.2695  (351s)
+  step  4000  loss 0.0789  true-mse 0.2545  (471s)
+  step  5000  loss 0.0646  true-mse 0.2463  (591s)
+  step  6000  loss 0.0492  true-mse 0.2385  (711s)
+  step  7000  loss 0.0379  true-mse 0.2331  (830s)
+  step  8000  loss 0.0273  true-mse 0.2257  (949s)
+  step  9000  loss 0.0197  true-mse 0.2247  (1068s)
+  step 10000  loss 0.0143  true-mse 0.2210  (1188s)
+    -> 6.05 dB  (1193.3s)
+=== synth5d  input -5.0 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.0794  true-mse 0.0794  (33s)
+  step  2000  loss 0.0408  true-mse 0.0408  (66s)
+  step  3000  loss 0.0370  true-mse 0.0370  (99s)
+  step  4000  loss 0.0350  true-mse 0.0350  (131s)
+  step  5000  loss 0.0337  true-mse 0.0337  (164s)
+  step  6000  loss 0.0326  true-mse 0.0326  (197s)
+  step  7000  loss 0.0316  true-mse 0.0316  (230s)
+  step  8000  loss 0.0310  true-mse 0.0310  (263s)
+  step  9000  loss 0.0302  true-mse 0.0302  (296s)
+  step 10000  loss 0.0298  true-mse 0.0298  (329s)
+    -> 13.57 dB  (334.5s)
+=== synth5d  input -2.5 dB  tnn
+    -> 9.32 dB  (0.2s)
+=== synth5d  input -2.5 dB  sgk
+    -> 12.36 dB  (7.3s)
+=== synth5d  input -2.5 dB  patchunet
+    -> 11.07 dB  (21.0s)
+=== synth5d  input -2.5 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4471  true-mse 0.5564  (122s)
+  step  2000  loss 0.1600  true-mse 0.2998  (244s)
+  step  3000  loss 0.1176  true-mse 0.2749  (365s)
+  step  4000  loss 0.1013  true-mse 0.2598  (487s)
+  step  5000  loss 0.0872  true-mse 0.2482  (609s)
+  step  6000  loss 0.0705  true-mse 0.2423  (731s)
+  step  7000  loss 0.0586  true-mse 0.2367  (853s)
+  step  8000  loss 0.0501  true-mse 0.2312  (977s)
+  step  9000  loss 0.0403  true-mse 0.2277  (1101s)
+  step 10000  loss 0.0357  true-mse 0.2265  (1225s)
+    -> 8.13 dB  (1230.7s)
+=== synth5d  input -2.5 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.0873  true-mse 0.0873  (34s)
+  step  2000  loss 0.0471  true-mse 0.0471  (68s)
+  step  3000  loss 0.0432  true-mse 0.0432  (102s)
+  step  4000  loss 0.0411  true-mse 0.0411  (135s)
+  step  5000  loss 0.0396  true-mse 0.0396  (169s)
+  step  6000  loss 0.0383  true-mse 0.0383  (203s)
+  step  7000  loss 0.0373  true-mse 0.0373  (238s)
+  step  8000  loss 0.0366  true-mse 0.0366  (272s)
+  step  9000  loss 0.0357  true-mse 0.0357  (306s)
+  step 10000  loss 0.0352  true-mse 0.0352  (340s)
+    -> 15.45 dB  (345.7s)
+=== synth5d  input +0.0 dB  tnn
+    -> 10.79 dB  (0.2s)
+=== synth5d  input +0.0 dB  sgk
+    -> 14.24 dB  (7.2s)
+=== synth5d  input +0.0 dB  patchunet
+    -> 13.65 dB  (21.3s)
+=== synth5d  input +0.0 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4445  true-mse 0.5284  (124s)
+  step  2000  loss 0.1587  true-mse 0.2999  (248s)
+  step  3000  loss 0.1173  true-mse 0.2783  (371s)
+  step  4000  loss 0.1006  true-mse 0.2639  (494s)
+  step  5000  loss 0.0845  true-mse 0.2533  (618s)
+  step  6000  loss 0.0704  true-mse 0.2495  (741s)
+  step  7000  loss 0.0586  true-mse 0.2458  (865s)
+  step  8000  loss 0.0470  true-mse 0.2385  (989s)
+  step  9000  loss 0.0372  true-mse 0.2332  (1113s)
+  step 10000  loss 0.0318  true-mse 0.2288  (1237s)
+    -> 10.62 dB  (1242.8s)
+=== synth5d  input +0.0 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.0946  true-mse 0.0946  (34s)
+  step  2000  loss 0.0534  true-mse 0.0534  (68s)
+  step  3000  loss 0.0489  true-mse 0.0489  (102s)
+  step  4000  loss 0.0466  true-mse 0.0466  (136s)
+  step  5000  loss 0.0449  true-mse 0.0449  (170s)
+  step  6000  loss 0.0433  true-mse 0.0433  (204s)
+  step  7000  loss 0.0423  true-mse 0.0423  (238s)
+  step  8000  loss 0.0412  true-mse 0.0412  (273s)
+  step  9000  loss 0.0404  true-mse 0.0404  (306s)
+  step 10000  loss 0.0399  true-mse 0.0399  (341s)
+    -> 16.91 dB  (347.0s)
+=== synth5d  input +2.5 dB  tnn
+    -> 12.39 dB  (0.2s)
+=== synth5d  input +2.5 dB  sgk
+    -> 13.88 dB  (7.1s)
+=== synth5d  input +2.5 dB  patchunet
+    -> 16.19 dB  (21.5s)
+=== synth5d  input +2.5 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4623  true-mse 0.5465  (124s)
+  step  2000  loss 0.1796  true-mse 0.3229  (244s)
+  step  3000  loss 0.1317  true-mse 0.2951  (362s)
+  step  4000  loss 0.1059  true-mse 0.2828  (478s)
+  step  5000  loss 0.0911  true-mse 0.2723  (573s)
+  step  6000  loss 0.0745  true-mse 0.2662  (668s)
+  step  7000  loss 0.0597  true-mse 0.2563  (763s)
+  step  8000  loss 0.0492  true-mse 0.2541  (851s)
+  step  9000  loss 0.0390  true-mse 0.2527  (950s)
+  step 10000  loss 0.0305  true-mse 0.2522  (1051s)
+    -> 12.62 dB  (1056.7s)
+=== synth5d  input +2.5 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.1107  true-mse 0.1107  (27s)
+  step  2000  loss 0.0567  true-mse 0.0567  (54s)
+  step  3000  loss 0.0520  true-mse 0.0520  (81s)
+  step  4000  loss 0.0493  true-mse 0.0493  (108s)
+  step  5000  loss 0.0477  true-mse 0.0477  (135s)
+  step  6000  loss 0.0460  true-mse 0.0460  (162s)
+  step  7000  loss 0.0445  true-mse 0.0445  (190s)
+  step  8000  loss 0.0434  true-mse 0.0434  (217s)
+  step  9000  loss 0.0423  true-mse 0.0423  (244s)
+  step 10000  loss 0.0418  true-mse 0.0418  (271s)
+    -> 19.04 dB  (276.5s)
+=== synth5d  input +5.0 dB  tnn
+    -> 14.10 dB  (0.2s)
+=== synth5d  input +5.0 dB  sgk
+    -> 15.20 dB  (6.9s)
+=== synth5d  input +5.0 dB  patchunet
+    -> 18.37 dB  (17.1s)
+=== synth5d  input +5.0 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4588  true-mse 0.5386  (101s)
+  step  2000  loss 0.1666  true-mse 0.3223  (202s)
+  step  3000  loss 0.1194  true-mse 0.2987  (304s)
+  step  4000  loss 0.0949  true-mse 0.2813  (405s)
+  step  5000  loss 0.0751  true-mse 0.2719  (506s)
+  step  6000  loss 0.0598  true-mse 0.2666  (606s)
+  step  7000  loss 0.0456  true-mse 0.2582  (693s)
+  step  8000  loss 0.0345  true-mse 0.2578  (781s)
+  step  9000  loss 0.0239  true-mse 0.2556  (868s)
+  step 10000  loss 0.0166  true-mse 0.2526  (974s)
+    -> 14.73 dB  (979.3s)
+=== synth5d  input +5.0 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.1047  true-mse 0.1047  (29s)
+  step  2000  loss 0.0594  true-mse 0.0594  (57s)
+  step  3000  loss 0.0540  true-mse 0.0540  (86s)
+  step  4000  loss 0.0512  true-mse 0.0512  (115s)
+  step  5000  loss 0.0490  true-mse 0.0490  (143s)
+  step  6000  loss 0.0473  true-mse 0.0473  (172s)
+  step  7000  loss 0.0458  true-mse 0.0458  (201s)
+  step  8000  loss 0.0448  true-mse 0.0448  (230s)
+  step  9000  loss 0.0434  true-mse 0.0434  (258s)
+  step 10000  loss 0.0429  true-mse 0.0429  (287s)
+    -> 21.09 dB  (292.1s)
+=== synth5d  input +7.5 dB  tnn
+    -> 15.83 dB  (0.2s)
+=== synth5d  input +7.5 dB  sgk
+    -> 15.02 dB  (7.0s)
+=== synth5d  input +7.5 dB  patchunet
+    -> 21.09 dB  (18.0s)
+=== synth5d  input +7.5 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4622  true-mse 0.5368  (107s)
+  step  2000  loss 0.1684  true-mse 0.3398  (214s)
+  step  3000  loss 0.1140  true-mse 0.3115  (321s)
+  step  4000  loss 0.0830  true-mse 0.2960  (427s)
+  step  5000  loss 0.0610  true-mse 0.2877  (534s)
+  step  6000  loss 0.0450  true-mse 0.2841  (641s)
+  step  7000  loss 0.0293  true-mse 0.2758  (748s)
+  step  8000  loss 0.0157  true-mse 0.2705  (855s)
+  step  9000  loss 0.0043  true-mse 0.2691  (962s)
+  step 10000  loss -0.0040  true-mse 0.2683  (1069s)
+    -> 16.71 dB  (1073.5s)
+=== synth5d  input +7.5 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.1118  true-mse 0.1118  (29s)
+  step  2000  loss 0.0631  true-mse 0.0631  (57s)
+  step  3000  loss 0.0573  true-mse 0.0573  (86s)
+  step  4000  loss 0.0540  true-mse 0.0540  (115s)
+  step  5000  loss 0.0518  true-mse 0.0518  (143s)
+  step  6000  loss 0.0504  true-mse 0.0504  (172s)
+  step  7000  loss 0.0487  true-mse 0.0487  (201s)
+  step  8000  loss 0.0475  true-mse 0.0475  (230s)
+  step  9000  loss 0.0464  true-mse 0.0464  (258s)
+  step 10000  loss 0.0456  true-mse 0.0456  (287s)
+    -> 23.12 dB  (292.1s)
+=== synth5d  input +10.0 dB  tnn
+    -> 17.63 dB  (0.2s)
+=== synth5d  input +10.0 dB  sgk
+    -> 14.65 dB  (6.9s)
+=== synth5d  input +10.0 dB  patchunet
+    -> 21.61 dB  (18.1s)
+=== synth5d  input +10.0 dB  fptnn
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.4544  true-mse 0.5212  (107s)
+  step  2000  loss 0.1579  true-mse 0.3333  (214s)
+  step  3000  loss 0.0903  true-mse 0.3169  (320s)
+  step  4000  loss 0.0661  true-mse 0.3069  (427s)
+  step  5000  loss 0.0422  true-mse 0.2991  (534s)
+  step  6000  loss 0.0216  true-mse 0.2923  (641s)
+  step  7000  loss 0.0022  true-mse 0.2893  (748s)
+  step  8000  loss -0.0095  true-mse 0.2858  (855s)
+  step  9000  loss -0.0236  true-mse 0.2855  (962s)
+  step 10000  loss -0.0298  true-mse 0.2829  (1066s)
+    -> 18.27 dB  (1070.7s)
+=== synth5d  input +10.0 dB  fptnn_mse
+[FPTNN] framelet/linear/L1: 270000 slices of 10x10, redundancy 27.0, sigma=mad_band
+  step  1000  loss 0.1138  true-mse 0.1138  (27s)
+  step  2000  loss 0.0654  true-mse 0.0654  (53s)
+  step  3000  loss 0.0591  true-mse 0.0591  (80s)
+  step  4000  loss 0.0557  true-mse 0.0557  (106s)
+  step  5000  loss 0.0533  true-mse 0.0533  (133s)
+  step  6000  loss 0.0515  true-mse 0.0515  (160s)
+  step  7000  loss 0.0499  true-mse 0.0499  (186s)
+  step  8000  loss 0.0488  true-mse 0.0488  (213s)
+  step  9000  loss 0.0476  true-mse 0.0476  (239s)
+  step 10000  loss 0.0467  true-mse 0.0467  (266s)
+    -> 24.90 dB  (270.7s)
+[06:36:35] A: E1 F-tSVT
+=== synth5d  input +0.0 dB  ftsvt
+    -> 9.53 dB  (3.5s)
+=== synth5d  input +5.0 dB  ftsvt
+    -> 13.00 dB  (3.5s)
+[06:37:39] A: done

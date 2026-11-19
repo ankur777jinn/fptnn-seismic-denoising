@@ -1,0 +1,749 @@
+{
+ "env": {
+  "python": "3.10.22",
+  "machine": "x86_64",
+  "cpus": 64,
+  "numpy": "2.2.6",
+  "torch": "2.11.0+cu128",
+  "torch_threads": 8
+ },
+ "runs": {
+  "d8_w16": {
+   "snr_out": 9.5158271864135,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 8,
+    "width": 16,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 215.22337651252747,
+    "infer_time_s": 0.9196841716766357,
+    "total_time_s": 218.0572829246521,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.33076144858449696,
+      0.16646872230991722,
+      0.13255617817491294,
+      0.11810113300895318,
+      0.11180806353781372
+     ],
+     "true_mse": [
+      0.4195523160099983,
+      0.2727270641773939,
+      0.2491059660166502,
+      0.24036412957310677,
+      0.23935847391188145
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d8_w32": {
+   "snr_out": 10.396498453942382,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 8,
+    "width": 32,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 277.09442162513733,
+    "infer_time_s": 0.9417357444763184,
+    "total_time_s": 279.157497882843,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.21339235602412374,
+      0.10013119855662808,
+      0.07736325121391564,
+      0.06565048411348835,
+      0.059723245009314266
+     ],
+     "true_mse": [
+      0.33017532001435757,
+      0.24733520109951496,
+      0.23133553573489188,
+      0.22555065855383874,
+      0.22070616959035397
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d8_w64": {
+   "snr_out": 11.00971749582018,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 8,
+    "width": 64,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 322.88821959495544,
+    "infer_time_s": 2.2218918800354004,
+    "total_time_s": 326.18187642097473,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.1406229155519977,
+      0.06597556350543164,
+      0.04825846296269447,
+      0.03849572966154665,
+      0.03163020714093
+     ],
+     "true_mse": [
+      0.2680061720609665,
+      0.22403098645806313,
+      0.21653144627809526,
+      0.21462849685549737,
+      0.2107346883714199
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d12_w16": {
+   "snr_out": 7.735712983053582,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 12,
+    "width": 16,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 320.8327124118805,
+    "infer_time_s": 0.9227230548858643,
+    "total_time_s": 323.0568699836731,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.6424961598217487,
+      0.3850643962025642,
+      0.2864918867051601,
+      0.24097450995445252,
+      0.22204665888100864
+     ],
+     "true_mse": [
+      0.7234140748977661,
+      0.4758079280853271,
+      0.37530196845531466,
+      0.32878518122434613,
+      0.3086249274909496
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d12_w32": {
+   "snr_out": 9.376342748077052,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 12,
+    "width": 32,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 377.0453853607178,
+    "infer_time_s": 1.3391942977905273,
+    "total_time_s": 379.69593572616577,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.4205661126822233,
+      0.19211653067730367,
+      0.1358731272658333,
+      0.11296361957164482,
+      0.10137998679326847
+     ],
+     "true_mse": [
+      0.5185759090483189,
+      0.3230542185306549,
+      0.2872340216487646,
+      0.27212536934018133,
+      0.25929918929934503
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d12_w64": {
+   "snr_out": 10.494543099164243,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 12,
+    "width": 64,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 458.72958278656006,
+    "infer_time_s": 3.4108834266662598,
+    "total_time_s": 463.2909872531891,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.2502715625623241,
+      0.10240513011440634,
+      0.07294138034479693,
+      0.05614513690304011,
+      0.04482360427780077
+     ],
+     "true_mse": [
+      0.37391368471086023,
+      0.2588123173713684,
+      0.2458420399874449,
+      0.23606602828204631,
+      0.22919506739079953
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d17_w16": {
+   "snr_out": 4.622682012047081,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 17,
+    "width": 16,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 422.2242352962494,
+    "infer_time_s": 1.4613628387451172,
+    "total_time_s": 425.2194309234619,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.8846387152671814,
+      0.703177830517292,
+      0.5834936941564083,
+      0.4993289753496647,
+      0.46070836448669433
+     ],
+     "true_mse": [
+      0.9490045277476311,
+      0.7709566265940666,
+      0.6522704063653946,
+      0.5749917064607143,
+      0.5385712408721447
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d17_w32": {
+   "snr_out": 7.579959694463453,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 17,
+    "width": 32,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 510.89774227142334,
+    "infer_time_s": 1.8017244338989258,
+    "total_time_s": 514.2516016960144,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.7282762278616428,
+      0.37863435280323027,
+      0.2752209721803665,
+      0.22558440864086152,
+      0.19648480293899775
+     ],
+     "true_mse": [
+      0.8030450979471206,
+      0.46570842012763025,
+      0.3715152143537998,
+      0.33168206533789635,
+      0.3219004489481449
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d17_w64": {
+   "snr_out": 10.023657636446366,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 17,
+    "width": 64,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 587.3527581691742,
+    "infer_time_s": 4.557253122329712,
+    "total_time_s": 593.1459488868713,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.4731171042472124,
+      0.1563491080738604,
+      0.11131836143415422,
+      0.0827902457760647,
+      0.06633380920672789
+     ],
+     "true_mse": [
+      0.5556824276745319,
+      0.3010918319821358,
+      0.26818253347277643,
+      0.25056874042749405,
+      0.2433998377472162
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d20_w16": {
+   "snr_out": 2.3557874347797956,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 20,
+    "width": 16,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 474.71137046813965,
+    "infer_time_s": 1.4908716678619385,
+    "total_time_s": 477.8607015609741,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.9530691857933998,
+      0.838670655965805,
+      0.7405209911465644,
+      0.6853581246733665,
+      0.6575345412492752
+     ],
+     "true_mse": [
+      1.0147581006884574,
+      0.9040035817027092,
+      0.8066445488929749,
+      0.7536973778605461,
+      0.7256798166632652
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d20_w32": {
+   "snr_out": 6.7447098046260585,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 20,
+    "width": 32,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 599.4364912509918,
+    "infer_time_s": 1.9321448802947998,
+    "total_time_s": 603.0577023029327,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.8678258889317513,
+      0.5822005130350589,
+      0.4045141813158989,
+      0.318504781216383,
+      0.27761093647778035
+     ],
+     "true_mse": [
+      0.9328299691081047,
+      0.6573834208250046,
+      0.48134392854571345,
+      0.3964234439432621,
+      0.3555731617510319
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  },
+  "d20_w64": {
+   "snr_out": 7.299986098026375,
+   "cfg": {
+    "kind": "framelet",
+    "ftype": "linear",
+    "levels": 1,
+    "bc": "symmetric",
+    "depth": 20,
+    "width": 64,
+    "steps": 5000,
+    "batch": 128,
+    "sigma_mode": "mad_band",
+    "threads": null,
+    "log_every": 1000,
+    "div_probes": 4,
+    "div_central": true
+   },
+   "info": {
+    "n_slices": 270000,
+    "slice_shape": [
+     10,
+     10
+    ],
+    "redundancy": 27.0,
+    "sigma_slices_mean": 0.01713553457500375,
+    "sigma_rel_err": 0.10392543265110732,
+    "device": "cuda",
+    "train_time_s": 674.5537557601929,
+    "infer_time_s": 5.1373748779296875,
+    "total_time_s": 681.121749162674,
+    "hist": {
+     "step": [
+      1000,
+      2000,
+      3000,
+      4000,
+      5000
+     ],
+     "loss": [
+      0.6835018222033977,
+      0.32136317855119706,
+      0.24845832257345318,
+      0.19437982827425004,
+      0.16634386373870075
+     ],
+     "true_mse": [
+      0.7515330794751645,
+      0.40977641808986665,
+      0.38256444558501246,
+      0.34452531665563585,
+      0.3246335102021694
+     ],
+     "val_step": [],
+     "val_sure": [],
+     "val_true": []
+    }
+   }
+  }
+ },
+ "args": {
+  "data": "synth5d",
+  "snr": 0.0,
+  "variants": [
+   "base",
+   "haar",
+   "cubic",
+   "linear_L2",
+   "dct",
+   "identity",
+   "sig_global",
+   "sig_oracle",
+   "loss_mse",
+   "slices_tx",
+   "div_fwd1",
+   "div_c4",
+   "holdout",
+   "no_bn"
+  ],
+  "grid": true,
+  "depths": [
+   8,
+   12,
+   17,
+   20
+  ],
+  "widths": [
+   16,
+   32,
+   64
+  ],
+  "depth": 17,
+  "width": 64,
+  "steps": 5000,
+  "batch": 128,
+  "sigma_mode": "mad_band",
+  "threads": null,
+  "div_probes": 4,
+  "div_forward": false,
+  "tag": "e4"
+ }
+}

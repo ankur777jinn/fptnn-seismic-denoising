@@ -6,3 +6,8 @@ results/logs/
 results/**/quick_*
 results/quick_*
 results/*timing*
+
+# server copies: keep JSON/figures/tables/logs, not volumes or smoke tests
+results_server/*.npy
+results_server/quick_*
+results_server/**/quick_*

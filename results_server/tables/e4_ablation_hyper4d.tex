@@ -1,0 +1,16 @@
+\begin{tabular}{lc}
+\hline
+Variant & SNR (dB) \\
+\hline
+Base: linear framelet, Eq.(24) $\sigma$, SURE & 13.80 \\
+Haar framelet & 15.49 \\
+Cubic B-spline framelet & 13.79 \\
+Linear framelet, 2 levels & 14.61 \\
+DCT instead of framelet & -15.21 \\
+No transform (2-D DnCNN on slices) & -15.25 \\
+$\sigma$: global MAD propagated through $W$ & 17.92 \\
+$\sigma$: true value & 17.89 \\
+MSE loss with clean data & 30.56 \\
+(t, x) frontal slices & 12.06 \\
+\hline
+\end{tabular}
